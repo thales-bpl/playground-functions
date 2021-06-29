@@ -2,30 +2,27 @@
 function compareTrue(bool1, bool2) {
   if (bool1 === true && bool2 === true) {
     return true;
-  } else {
-    return false;
   }
 }
-console.log(compareTrue(true, true));
 
 // Desafio 2
-function calcArea() {
-  // seu código aqui
+function calcArea(base, altura) {
+  return (base * altura) / 2;
 }
 
 // Desafio 3
-function splitSentence() {
-  // seu código aqui
+function splitSentence(string) {
+  return string.split(' ');
 }
 
 // Desafio 4
-function concatName() {
-  // seu código aqui
+function concatName(arrayStrings) {
+  return `${arrayStrings[arrayStrings.length - 1]}, ${arrayStrings[0]}`;
 }
 
 // Desafio 5
 function footballPoints() {
-  // seu código aqui
+  
 }
 
 // Desafio 6
