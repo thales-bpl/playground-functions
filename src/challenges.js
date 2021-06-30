@@ -67,11 +67,39 @@ function fizzBuzz(stringNumeros) {
 }
 
 // Desafio 9
-function encode() {
-  // seu código aqui
+function encode(string) {
+  for(let index = 0; index < string.length; index += 1) {
+    if (string[index] === 'a') {
+      string[index] = 1;
+    } else if (string[index] === 'e') {
+      string[index] = 2;
+    } else if (string[index] === 'i') {
+      string[index] = 3;
+    } else if (string[index] === 'o') {
+      string[index] = 4;
+    } else if (string[index] === 'u') {
+      string[index] = 5;
+    }
+  }
+  return string;
 }
-function decode() {
-  // seu código aqui
+
+
+function decode(string) {
+  for(let numero of string) {
+    if (numero === 1) {
+      numero = 'a';
+    } else if (numero === 2) {
+      numero = 'e';
+    } else if (numero === 3) {
+      numero = 'i';
+    } else if (numero === 4) {
+      numero = 'o';
+    } else if (numero === 5) {
+      numero = 'u';
+    }
+  }
+  return string;
 }
 
 module.exports = {
