@@ -37,7 +37,7 @@ function highestCount(arrayNumeros) {
   return contMaiorNumero;
 }
 
-// Desafio 7
+/* // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
   let distCat1 = Math.abs(mouse - cat1);
   let distCat2 = Math.abs(mouse - cat2);
@@ -48,12 +48,43 @@ function catAndMouse(mouse, cat1, cat2) {
   } if (distCat1 === distCat2) {
     return 'os gatos trombam e o rato foge';
   }
+} */
+
+// Desafio 7
+function catAndMouse(mouse, cat1, cat2) {
+  let distCat1 = checkDist(mouse, cat1);
+  let distCat2 = checkDist(mouse, cat2);
+  return mouseHunt (distCat1, distCat2);
+}
+
+function checkDist(pos1, pos2) {
+  let distAbsoluta = 0
+  if ((pos1 < 0 && pos2 < 0) || (pos1 > 0 && pos2 > 0)) {
+    if (pos1 > pos2) {
+      distAbsoluta = pos1 - pos2;
+    } else {
+      distAbsoluta = pos2 - pos1;
+    }
+  } else if ((pos1 > 0 && pos2 < 0) || (pos1 > 0 && pos2 < 0) || (pos1 === 0 || pos2 === 0)) {
+    distAbsoluta = pos1 + pos2;
+  }
+  return distAbsoluta
+}
+
+function mouseHunt (dist1, dist2) {
+  if (dist1 < dist2) {
+    return 'cat1';
+  } if (dist2 < dist1) {
+    return 'cat2';
+  } if (dist1 === dist2) {
+    return 'os gatos trombam e o rato foge';
+  }
 }
 
 // Desafio 8
-function fizzBuzz(stringNumeros) {
+/* function fizzBuzz(arrayNumeros) {
   let novoArray = [];
-  for (let number of stringNumeros)
+  for (let number of arrayNumeros)
     if (number % 3 === 0 && number % 5 !== 0) {
       novoArray.push('fizz');
     } else if (number % 5 === 0 && number % 3 !== 0) {
@@ -64,7 +95,47 @@ function fizzBuzz(stringNumeros) {
       novoArray.push('bug!');
     }
   return(novoArray);
+} */
+
+function fizzBuzz(arrayN) {
+  fizz(arrayN);
+  buzz(arrayN);
+  fizzbuzz(arrayN);
+  bug(arrayN);
+  return(arrayN); 
 }
+
+function fizz(array2) {
+  for (let index in array2) {
+    if ((array2[index] % 3 === 0) && (array2[index] % 5 !== 0)) {
+      return array2[index] = 'fizz';
+    }
+  }  
+}
+function buzz(array2) {
+  for (let index in array2) {
+    if ((array2[index] % 5 === 0) && (array2[index] % 3 !== 0)) {
+      return array2[index] = 'buzz';
+    }
+  }
+}
+function fizzbuzz(array2) {
+  for (let index in array2) {
+    if ((array2[index] % 3 === 0) && (array2[index] % 5 === 0)) {
+      return array2[index] = 'fizzBuzz';
+    }
+  }
+}
+function bug(array2) {
+  for (let index in array2) {
+    if ((array2[index] % 5 !== 0) && (array2[index] % 3 !== 0)) {
+      return array2[index] = 'bug!';
+    }
+  }
+}
+
+
+
 
 // Desafio 9
 function encode(string) {
