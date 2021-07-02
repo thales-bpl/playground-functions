@@ -122,50 +122,57 @@ function fizzbuzz(array2) {
 
 
 // Desafio 9
-function encode(string) {
-  return encode2(string);
+function encode(string) {  
+  let encoded = '';
+  for(let index of string) {
+  encoded += encode2(index);
 }
-function encode2(string) {   
-  let novaString = ''
-    for(let index of string) {
-      if (index == 'a') {
-        novaString += 1;
-      } else if (index == 'e') {
-        novaString += 2;
-      } else if (index == 'i') {
-        novaString += 3;
-      } else if (index == 'o') {
-        novaString += 4;
-      } else if (index == 'u') {
-        novaString += 5;
-      } else {
-        novaString += index
-      }
-    }
-  return novaString;
+return encoded;
 }
 
-function decode(string) {
-  return decode2(string);
-}
-function decode2(string) {              
-  let novaString = ''
-  for(let index of string) {
-    if (index == 1) {
-      novaString += 'a';
-    } else if (index == 2) {
-      novaString += 'e';
-    } else if (index == 3) {
-      novaString += 'i';
-    } else if (index == 4) {
-      novaString += 'o';
-    } else if (index == 5) {
-      novaString += 'u';
-    } else {
-      novaString += index
-    }
+function encode2(caractere) { 
+  let novaString = ''  
+  if (caractere == 'a') {
+      novaString += 1;
+  } else if (caractere == 'e') {
+      novaString += 2;
+  } else if (caractere == 'i') {
+      novaString += 3;
+  } else if (caractere == 'o') {
+      novaString += 4;
+  } else if (caractere == 'u') {
+      novaString += 5;
+  } else {
+      novaString += caractere
   }
-  return novaString;
+return novaString; // Retorna String encodada
+}
+
+
+function decode(string) {  
+  let decoded = '';
+  for(let index of string) {
+      decoded += decode2(index);
+}
+return decoded;
+}
+
+function decode2(caractere) {              
+  let novaString = '';
+  if (caractere == 1) {
+      novaString += 'a';
+  } else if (caractere == 2) {
+      novaString += 'e';
+  } else if (caractere == 3) {
+      novaString += 'i';
+  } else if (caractere == 4) {
+      novaString += 'o';
+  } else if (caractere == 5) {
+      novaString += 'u';
+  } else {
+      novaString += caractere
+  }
+return novaString; // Retorna String decodada
 }
 
 module.exports = {
