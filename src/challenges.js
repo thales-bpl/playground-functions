@@ -38,16 +38,16 @@ function highestCount(arrayNumeros) {
 
 function ordemCrescente(numbers) {
   for (let index = 1; index < numbers.length; index += 1) {
-    for (let secondIndex = 0; secondIndex < index; secondIndex += 1) {
-        if (numbers[index] < numbers[secondIndex]) {
-            let aux = numbers[index];
-            numbers[index] = numbers[secondIndex];
-            numbers[secondIndex] = aux;            
-        }
-    }
+      for (let index2 = 0; index2 < index; index2 += 1) {
+          if (numbers[index] < numbers[index2]) {
+              let aux = numbers[index];
+              numbers[index] = numbers[index2];
+              numbers[index2] = aux;            
+          }
+      }
   }
-  return(numbers); // retorna o mesmo Array, já organizado em ordem crescente
-}
+  return(numbers); // retorna o mesmo Array, já organizado em ordem crescente por Bubble Sort
+  }
 
 function counter(arrayNumbers, number) {
   let count = 0
@@ -67,6 +67,12 @@ function catAndMouse(mouse, cat1, cat2) {
   return mouseHunt (distCat1, distCat2);
 }
 
+/* function abs(n1) {
+  if (n1 < 0) {
+    n1 = n1 * (-1)
+} */
+
+// Dá pra melhorar a lógica dessa function catAndMouse. checkDist também pode ser otimizada.
 function checkDist(pos1, pos2) {
   let distAbsoluta = 0
   if ((pos1 < 0 && pos2 < 0) || (pos1 > 0 && pos2 > 0)) {
@@ -112,6 +118,7 @@ function fizzbuzz(array2) {
   }
   return array2;
 }
+// Not optimal. Ideia inicial era criar 1 função pra cada valor a ser substituído mas function bug(arrayNumeros) não estava transformando valores numericos em 'bug!'. if (array2[index] === Number) como critério não adiantou então resolvi passar um else = bug!. Pra fazer isso, tive que jogar tudo na mesma function (ou o 'else' iria considerar strings como válidos e transformar tudo em 'bug!')
 
 
 // Desafio 9
