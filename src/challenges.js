@@ -38,16 +38,16 @@ function highestCount(arrayNumeros) {
 
 function ordemCrescente(numbers) {
   for (let index = 1; index < numbers.length; index += 1) {
-      for (let index2 = 0; index2 < index; index2 += 1) {
-          if (numbers[index] < numbers[index2]) {
-              let aux = numbers[index];
-              numbers[index] = numbers[index2];
-              numbers[index2] = aux;            
-          }
+    for (let index2 = 0; index2 < index; index2 += 1) {
+      if (numbers[index] < numbers[index2]) {
+        let aux = numbers[index];
+        numbers[index] = numbers[index2];
+        numbers[index2] = aux;            
       }
+    }
   }
-  return(numbers); // retorna o mesmo Array, já organizado em ordem crescente por Bubble Sort
-  }
+  return(numbers); // retorna o mesmo Array, organizado em ordem crescente usando Bubble Sort
+}
 
 function counter(arrayNumbers, number) {
   let count = 0
@@ -84,7 +84,7 @@ function checkDist(pos1, pos2) {
   } else if ((pos1 > 0 && pos2 < 0) || (pos1 > 0 && pos2 < 0) || (pos1 === 0 || pos2 === 0)) {
     distAbsoluta = pos1 + pos2;
   }
-  return distAbsoluta
+  return distAbsoluta;
 }
 
 function mouseHunt (dist1, dist2) {
@@ -106,15 +106,15 @@ function fizzBuzz(arrayNumeros) {
 
 function fizzbuzz(array2) {
   for (let index in array2) {
-      if ((array2[index] % 3 === 0) && (array2[index] % 5 !== 0)) {
-          array2[index] = 'fizz';
-      } else if ((array2[index] % 5 === 0) && (array2[index] % 3 !== 0)) {
-          array2[index] = 'buzz';
-      } else if ((array2[index] % 3 === 0) && (array2[index] % 5 === 0)) {
-          array2[index] = 'fizzBuzz';
-      } else {  
-          array2[index] = 'bug!';
-      }
+    if ((array2[index] % 3 === 0) && (array2[index] % 5 !== 0)) {
+      array2[index] = 'fizz';
+    } else if ((array2[index] % 5 === 0) && (array2[index] % 3 !== 0)) {
+      array2[index] = 'buzz';
+    } else if ((array2[index] % 3 === 0) && (array2[index] % 5 === 0)) {
+      array2[index] = 'fizzBuzz';
+    } else {  
+      array2[index] = 'bug!'; 
+    }
   }
   return array2;
 }
@@ -125,54 +125,54 @@ function fizzbuzz(array2) {
 function encode(string) {  
   let encoded = '';
   for(let index of string) {
-  encoded += encode2(index);
-}
-return encoded;
+    encoded += encode2(index);
+  }
+  return encoded;
 }
 
 function encode2(caractere) { 
   let novaString = ''  
   if (caractere == 'a') {
-      novaString += 1;
+    novaString += 1;
   } else if (caractere == 'e') {
-      novaString += 2;
+    novaString += 2;
   } else if (caractere == 'i') {
-      novaString += 3;
+    novaString += 3;
   } else if (caractere == 'o') {
-      novaString += 4;
+    novaString += 4;
   } else if (caractere == 'u') {
-      novaString += 5;
+    novaString += 5;
   } else {
-      novaString += caractere
+    novaString += caractere
   }
-return novaString; // Retorna String encodada
+  return novaString; // Retorna nova string encodada
 }
 
 
 function decode(string) {  
   let decoded = '';
   for(let index of string) {
-      decoded += decode2(index);
-}
-return decoded;
+    decoded += decode2(index);
+  }
+  return decoded;
 }
 
 function decode2(caractere) {              
   let novaString = '';
   if (caractere == 1) {
-      novaString += 'a';
+    novaString += 'a';
   } else if (caractere == 2) {
-      novaString += 'e';
+    novaString += 'e';
   } else if (caractere == 3) {
-      novaString += 'i';
+    novaString += 'i';
   } else if (caractere == 4) {
-      novaString += 'o';
+    novaString += 'o';
   } else if (caractere == 5) {
-      novaString += 'u';
+    novaString += 'u';
   } else {
-      novaString += caractere
+    novaString += caractere
   }
-return novaString; // Retorna String decodada
+  return novaString; // Retorna nova string decodada
 }
 
 module.exports = {
