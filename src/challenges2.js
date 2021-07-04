@@ -4,6 +4,8 @@ function techList(tech, name) {
   return listaObjetos(tech, name);
 }
 
+// input: array de strings
+// output: o mesmo array de strings em ordem alfabética
 function ordemAlfabetica(arrayPalavras) {
   for (let index = 1; index < arrayPalavras.length; index += 1) {
     for (let index2 = 0; index2 < arrayPalavras.length; index2 += 1) {  
@@ -16,9 +18,9 @@ function ordemAlfabetica(arrayPalavras) {
   }
 return arrayPalavras;
 }
-// input: array de strings 
-// output: o mesmo array de strings em ordem alfabética
 
+// input: (Array de strings, string)
+// output: Novo array de objetos compostos por {string[index], string} 
 function listaObjetos (techs, teacher) {
   if (techs.length === 0) {
     return 'Vazio!';
@@ -34,20 +36,98 @@ function listaObjetos (techs, teacher) {
     return arrayObjetos;
   }
 }
-// input: (Array de strings, string)
-// output: Novo array de objetos compostos por {string[index], string} 
-
 
 
 // Desafio 11
-function generatePhoneNumber() {
-  // seu código aqui
+// ESTÁ ERRADA, FALTA AJUSTAR FUNCTION VALIDADOR
+function generatePhoneNumber(arrayDigitos) {
+  validador(arrayDigitos);
+  if (validador(arrayDigitos) === 'Número válido') {
+      return telephoneNumber(arrayDigitos);
+  } else {
+      return validador(arrayDigitos);
+  }
 }
 
-// Desafio 12
-function triangleCheck() {
-  // seu código aqui
+// Função que verifica se diretrizes para número de telefone foram cumpridas
+// Função não está funcionando adequadamente. Nunca retorna ('não é possível gerar um número de telefone com esses valores'). Não está reconhecendo condição mesmo quando função numberCounter > 2. Mesmo quando o último número do array é o número repetido.
+// Testando array qualquer, última valor retornado é sempre 'undefined'.
+
+function validador(arrayAlgarismos) {
+  if (arrayAlgarismos.length !== 11) {
+    return 'Array com tamanho incorreto.';
+  } else {
+    for (let index in arrayAlgarismos) {
+      if (arrayAlgarismos[index] < 0 || arrayAlgarismos[index] > 9 || numberCounter((arrayAlgarismos, arrayAlgarismos[index]) > 2)) {
+        return 'não é possível gerar um número de telefone com esses valores';
+      } else {
+        return 'Número válido';
+      }
+    }
+  }
 }
+
+// Função que conta frequência de um dígito dentro de um array
+function numberCounter(arrayNumbers, number) {
+  let counter = 0;
+  for (let index in arrayNumbers) {
+    if (arrayNumbers[index] === number) {
+      counter += 1;
+    }
+  }
+  return counter;
+} 
+
+// Função geradora do número de telefone
+function telephoneNumber (arrayDigitos) {
+  let numeroTelefone = [];
+  numeroTelefone += '(';
+  for (let index = 0; index < 2; index += 1) {
+    numeroTelefone += arrayDigitos[index];
+  }
+  numeroTelefone += ') ';
+  for (let index2 = 2; index2 < 7; index2 += 1) {
+    numeroTelefone += arrayDigitos[index2];
+  }
+  numeroTelefone += '-';
+  for (let index3 = 7; index3 < 11; index3 += 1) {
+    numeroTelefone += arrayDigitos[index3];
+  }
+  return numeroTelefone;
+}
+
+
+
+// Desafio 12
+function triangleCheck(lineA, lineB, lineC) {
+  let checkA = sideCheck(lineA, lineB, lineC);
+  let checkB = sideCheck(lineB, lineC, lineA);
+  let checkC = sideCheck(lineC, lineA, lineB);
+  if (checkA === true && checkB === true && checkC === true) {
+      return true;
+  } else {
+      return false;
+  }
+}
+
+// Checa se um lado é menor que a soma dos outros dois E maior que a diferença dos módulos dos outros dois lados
+function sideCheck (line1, line2, line3) {
+    if (line1 < line2 + line3 && line1 > modulo(line2 - line3)) {
+        return true;
+    } else {
+        return false;
+    }    
+}
+
+// Módulo matemático
+function modulo(number) {
+  if (number < 0) {
+      return number * (-1)
+  } else if (number >= 0) {
+      return number
+  }
+}
+
 
 // Desafio 13
 function hydrate() {
