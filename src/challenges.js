@@ -13,8 +13,22 @@ function calcArea(base, altura) {
 
 
 // Desafio 3
+// Retornando Array vazio. Corrigir.
 function splitSentence(string) {
-  return string.split(' ');
+  return stringSplitter(string);
+}
+
+function stringSplitter(string){
+  let novoArray = [];
+  let stringsSeparadas = '';
+  for (let index in string) {
+    } if (string[index] === ' ') {
+      novoArray.push(stringsSeparadas);
+      stringsSeparadas = '';
+    } else {
+        stringsSeparadas += string[index];
+    }
+  return novoArray;
 }
 
 
@@ -71,7 +85,7 @@ function catAndMouse(mouse, cat1, cat2) {
 function modulo(number) {
   if (number < 0) {
     return number * (-1);
-  } else if (number >= 0) {
+  } if (number >= 0) {
     return number;
   }
 }

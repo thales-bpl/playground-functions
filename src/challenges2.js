@@ -130,6 +130,7 @@ function hydrate() {
   // seu código aqui
 }
 
+
 module.exports = {
   generatePhoneNumber,
   techList,
