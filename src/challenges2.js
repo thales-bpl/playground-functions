@@ -39,33 +39,30 @@ function listaObjetos (techs, teacher) {
 
 
 // Desafio 11
-// ESTÁ ERRADA, FALTA AJUSTAR FUNCTION VALIDADOR
 function generatePhoneNumber(arrayDigitos) {
   validador(arrayDigitos);
-  if (validador(arrayDigitos) === 'Número válido') {
-      return telephoneNumber(arrayDigitos);
+  if (validador(arrayDigitos) === 'Array com tamanho incorreto.' || validador(arrayDigitos) === 'não é possível gerar um número de telefone com esses valores') {
+    return validador(arrayDigitos); 
   } else {
-      return validador(arrayDigitos);
+    return telephoneNumber(arrayDigitos);
   }
 }
 
-// Função que verifica se diretrizes para número de telefone foram cumpridas
-// Função não está funcionando adequadamente. Nunca retorna ('não é possível gerar um número de telefone com esses valores'). Não está reconhecendo condição mesmo quando função numberCounter > 2. Mesmo quando o último número do array é o número repetido.
-// Testando array qualquer, última valor retornado é sempre 'undefined'.
+// Função não está funcionando adequadamente. Nunca retorna ('não é possível gerar um número de telefone com esses valores'). Não está reconhecendo condição mesmo quando função numberCounter > 2 quando colocamos um }else{ ao fim da função.
 
+// Função que verifica se diretrizes para número de telefone foram cumpridas
 function validador(arrayAlgarismos) {
   if (arrayAlgarismos.length !== 11) {
     return 'Array com tamanho incorreto.';
   } else {
     for (let index in arrayAlgarismos) {
-      if (arrayAlgarismos[index] < 0 || arrayAlgarismos[index] > 9 || numberCounter((arrayAlgarismos, arrayAlgarismos[index]) > 2)) {
+      if (arrayAlgarismos[index] < 0 || arrayAlgarismos[index] > 9 || numberCounter(arrayAlgarismos, arrayAlgarismos[index]) > 2) {
         return 'não é possível gerar um número de telefone com esses valores';
-      } else {
-        return 'Número válido';
       }
     }
   }
 }
+
 
 // Função que conta frequência de um dígito dentro de um array
 function numberCounter(arrayNumbers, number) {
@@ -95,7 +92,6 @@ function telephoneNumber (arrayDigitos) {
   }
   return numeroTelefone;
 }
-
 
 
 // Desafio 12

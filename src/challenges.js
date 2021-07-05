@@ -62,31 +62,21 @@ function counter(arrayNumbers, number) {
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  let distCat1 = checkDist(mouse, cat1);
-  let distCat2 = checkDist(mouse, cat2);
+  let distCat1 = modulo(mouse - cat1);
+  let distCat2 = modulo(mouse - cat2);
   return mouseHunt (distCat1, distCat2);
 }
 
-/* function abs(n1) {
-  if (n1 < 0) {
-    n1 = n1 * (-1)
-} */
-
-// Dá pra melhorar a lógica dessa function catAndMouse. checkDist também pode ser otimizada.
-function checkDist(pos1, pos2) {
-  let distAbsoluta = 0
-  if ((pos1 < 0 && pos2 < 0) || (pos1 > 0 && pos2 > 0)) {
-    if (pos1 > pos2) {
-      distAbsoluta = pos1 - pos2;
-    } else {
-      distAbsoluta = pos2 - pos1;
-    }
-  } else if ((pos1 > 0 && pos2 < 0) || (pos1 > 0 && pos2 < 0) || (pos1 === 0 || pos2 === 0)) {
-    distAbsoluta = pos1 + pos2;
+// Módulo matemático
+function modulo(number) {
+  if (number < 0) {
+    return number * (-1);
+  } else if (number >= 0) {
+    return number;
   }
-  return distAbsoluta;
 }
 
+// Compara as distâncias entre os gatos e o alvo
 function mouseHunt (dist1, dist2) {
   if (dist1 < dist2) {
     return 'cat1';
