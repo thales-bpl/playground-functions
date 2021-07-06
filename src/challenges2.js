@@ -70,7 +70,7 @@ function numberCounter(arrayNumbers, number) {
 }  
 
 /* Função geradora do número de telefone */
-/* Bug aleatório: se usarmos for/in na L78, (apenas) um dos casos não passa porque ele não adiciona ') ' nem '-'. O index só é reconhecido como 2 e 7 se usarmos o operador '==' ao inves de '==='. Nos outros 4 casos, porém, ele adiciona as strings corretamente. Desse modo, preferimos usar for loop clássico */
+/* Bug 'aleatório': se usarmos for/in na L76, (apenas) um dos casos não passa porque ele não adiciona ') ' nem '-'. O index só é reconhecido como 2 e 7 se usarmos o operador '==' ao inves de '==='. Nos outros 4 casos, porém, ele adiciona as strings corretamente. Desse modo, preferimos usar for loop clássico */
 function telephoneNumber(arrayDigitos) {
   let numeroTelefone = '(';
   for (let index = 0; index < 11; index += 1) {
@@ -113,8 +113,21 @@ function modulo(number) {
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(stringBar) {
+  let drinkCount = /\d+/g;
+  let cupCount = stringBar.match(drinkCount);
+  for (let index = 0; index < cupCount.length; index += 1) {
+    cupCount[index] = cupCount[index] * 1;
+  }
+  let totalDrinks = 0;
+  for (let index = 0; index < cupCount.length; index += 1) {
+    totalDrinks += cupCount[index];
+  }
+  if (totalDrinks === 1) {
+    return totalDrinks + ' copo de água';
+  } if (totalDrinks > 1) {
+    return totalDrinks + ' copos de água';
+  }
 }
 
 module.exports = {
