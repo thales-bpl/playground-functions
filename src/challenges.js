@@ -2,6 +2,8 @@
 function compareTrue(bool1, bool2) {
   if (bool1 === true && bool2 === true) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -100,7 +102,7 @@ function mouseHunt(dist1, dist2) {
 // Desafio 8
 function fizzBuzz(arrayNumbers) {
   let arrayFizzBuzz = [];
-  for(let index of arrayNumbers) {
+  for (let index of arrayNumbers) {
     fizz(index, arrayFizzBuzz);
     buzz(index, arrayFizzBuzz);
     fizzbuzz(index, arrayFizzBuzz);

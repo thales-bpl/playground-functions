@@ -21,7 +21,7 @@ function ordemAlfabetica(arrayPalavras) {
 
 /* input: (Array de strings, string)
 output: Novo array de objetos compostos por {string[index], string} */
-function listaObjetos (techs, teacher) {
+function listaObjetos(techs, teacher) {
   if (techs.length === 0) {
     return 'Vazio!';
   } else {
