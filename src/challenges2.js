@@ -24,17 +24,17 @@ output: Novo array de objetos compostos por {string[index], string} */
 function listaObjetos(techs, teacher) {
   if (techs.length === 0) {
     return 'Vazio!';
-  } else {
-    let arrayObjetos = []
-    for (let value of techs) {
-      let objeto = {
-        tech: value,
-        name: teacher,
-      }
-      arrayObjetos.push(objeto);
-    }
-    return arrayObjetos;
   }
+  let arrayObjetos = [];
+  for (let value of techs) {
+    let objeto = {
+      tech: value,
+      name: teacher,
+    };
+    arrayObjetos.push(objeto);
+  }
+  return arrayObjetos;
+
 }
 
 // Desafio 11
@@ -42,11 +42,10 @@ function generatePhoneNumber(arrayDigitos) {
   let status = validador(arrayDigitos);
   if (arrayDigitos.length !== 11) {
     return 'Array com tamanho incorreto.';
-  } else if (status === 'não é possível gerar um número de telefone com esses valores') {
-    return status; 
-  } else {
-    return telephoneNumber(arrayDigitos);
-  }
+  } if (status === 'não é possível gerar um número de telefone com esses valores') {
+    return status;
+  } 
+  return telephoneNumber(arrayDigitos);
 }
 
 /* Função que verifica se diretrizes para número de telefone foram cumpridas */
@@ -91,9 +90,9 @@ function triangleCheck(lineA, lineB, lineC) {
   let checkC = sideCheck(lineC, lineA, lineB);
   if (checkA === true && checkB === true && checkC === true) {
     return true;
-  } else {
-    return false;
   }
+  return false;
+
 }
 
 /* Checa se um lado é menor que a soma dos outros dois E maior que a diferença dos módulos dos outros dois lados */

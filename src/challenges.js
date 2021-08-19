@@ -2,9 +2,8 @@
 function compareTrue(bool1, bool2) {
   if (bool1 === true && bool2 === true) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 // Desafio 2
@@ -156,7 +155,7 @@ function encoded(caractere) {
   return novaString;
 }
 
-function decode(string) {  
+function decode(string) {
   let decodedString = '';
   for (let index of string) {
     decodedString += decoded(index);
